@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<h1><p>CSS begin</p></h1>
+<table border="1" width="50" cellspacing="0" cellpadding="10">
+    <th>Header</th>
+    <tr>
+        <td>Id</td>
+        <td>Numele</td>
+        <td>Prenumele</td>
+        <td>Varsta</td>
+    </tr>
+    <?php
+         require_once 'models/DataBase.php';
+         $obj = new DataBase();
+         $users= $obj->getAllUser();
+    foreach($users as $id => $user):
+    ?>
+    <tr>
+        <td><?= $id ?></td>
+        <td><?= $user['fName'] ?></td>
+        <td><?= $user['lName'] ?></td>
+        <td><?= $user['age'] ?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+</body>
+</html>
