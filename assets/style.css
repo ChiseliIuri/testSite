@@ -1,7 +1,163 @@
-p {
+#forH1 {
+    background: burlywood;
+    background-position: right;
+    padding: 5px;
     text-align: center;
-    color : blue;
+    text-shadow: red 2px 2px 5px;
+    color: cornflowerblue;
     width: 300px;
-    height: 100px;
-    border: 1px solid black;
+    height: 80px;
+    vertical-align: middle;
+    border: 2px solid silver;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: Impact;
+    font-size: 60px;
 }
+
+p {
+    background: rgba(102, 204, 255, 0.7);
+    border: 5px;
+    border-left: solid red;
+    padding: 10px;
+    text-indent: 30px;
+    max-width: 1300px;
+    /*width: 600px;*/
+    /*height: 18%;*/
+    color: black;
+    text-align: justify;
+    font-style: italic;
+    font-family: Calibri;
+    line-height: 1.5;
+    box-sizing: content-box;
+}
+
+div p {
+    color: aqua;
+    font-size: 30px;
+    font-style: normal;
+}
+
+div h1 {
+    text-align: center;
+    color: darkgreen;
+    width: 600px;
+    height: 100px;
+    border: 2px inset silver;
+    font-weight: bold;
+    font-family: Impact;
+    font-size: 60px;
+}
+
+#test p, h2{
+    font-family: "Bookman Old Style";
+    color: darkorange;
+}
+
+.bbb #test p{
+    text-align: center;
+    color: crimson;
+    border: blue 2px dotted;
+}
+
+table {
+    margin: 5px;
+    background: rgba(255,255,255,0.6);
+    max-width: 700px;
+    max-height: 500px;
+    border: white solid;
+    border-radius: 20px;
+}
+
+td {
+    text
+    text-align: center;
+    vertical-align: middle;
+    border: none ;
+}
+
+th {
+    border: none ;
+}
+
+li {
+    font-style: italic;
+    color: darkblue;
+}
+
+#link a{
+    font-weight: bold;
+}
+
+div a:link {
+    text-decoration: none;
+    color: darkgray;
+}
+
+div a:visited {
+    text-decoration: none;
+    color: green;
+}
+
+div a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+div a:active {
+    color: red;
+}
+
+body {
+    color: black;
+}
+
+.fon {
+    /*float: right;*/
+    background-image: url('img/hi-tech-corsair-technology-black.jpg');
+    max-width: 1440px;
+    max-height: 810px;
+    background-repeat: no-repeat;
+    margin: 20px 50px;
+    /*background-position: center;*/
+    background-attachment: scroll;
+
+}
+
+.form {
+    color: white;
+    margin: 1.5%;
+}
+
+button{
+    background: white;
+    border: cornflowerblue;
+    border-radius: 50px;
+    box-shadow: gray 1px 3px;
+}
+
+button:hover{
+    color: red;
+}
+
+button:active{
+    box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,11 +9,11 @@ class DataBase
     private static $name = 'test';
     private static $user = 'root';
     private static $pass = '';
-    private static $db;
 
     /**
      * @return mysqli
      */
+
     public function connectDb(): mysqli
     {
         $link = @mysqli_connect(self::$host, self::$user, self::$pass, self::$name);
@@ -21,6 +21,7 @@ class DataBase
             echo 'Eroare de conctare la BD';
             die();
         } else return $link;
+
 //        try {
 //            $conn = new PDO(self::$host, self::$user, self::pass, self::$name);
 //            // set the PDO error mode to exception
@@ -29,6 +30,7 @@ class DataBase
 //        } catch(PDOException $e) {
 //            echo "Connection failed: " . $e->getMessage();
 //        }
+
     }
 
     public function insertUserInDb($fName, $lName, $age = null)
@@ -36,14 +38,11 @@ class DataBase
         $link = $this->connectDb();
         $prepare = $link->prepare("INSERT INTO users (fName, lName, age) values(?,?,?)");
         if ($prepare->bind_param("ssi", $fName, $lName, $age)) {
-            echo 'Bind created Succesifull' . '<br/>';
             if ($prepare->execute()) {
-                echo 'Query created Succesifull' . '<br/>';
+                return true;
             } else {
-                echo 'Query executing failed' . '<br/>';
+                return false;
             }
-        } else {
-            echo 'Failed Bind';
         }
     }
 
@@ -80,16 +79,14 @@ class DataBase
         }
         return $usersAr;
     }
+
+    public function deleteUserByID($id){
+        $link = $this->connectDb();
+        $sql = $link->prepare("DELETE from users where id = '$id'");
+        if ($sql ->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
-
-
-
-//$obj = new DataBase();
-//$obj->insertUserInDb('Iosif', 'Stalin', 22);
-//$obj->insertUserInDb('Jeff', 'Bezos', 66);
-//$obj->insertUserInDb('Walter', 'White', 89);
-//$obj->insertUserInDb('Black', 'Mesa', 18);
-//$obj->getSpecUserFromDb('Popov', 'Markoni');
-//$obj->getSpecUserFromDb('Topoli', 'Malii');
-//$obj->getAllUser();
-

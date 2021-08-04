@@ -2,13 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tables</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
-<body>
-<h1><p>CSS begin</p></h1>
-<table border="1" width="50" cellspacing="0" cellpadding="10">
-    <th>Header</th>
+
+<body class="fon">
+
+<h1 id="forH1" title="About wtf is this.">CSS begin</h1>
+
+<!--<img src="assets/back.jpg">-->
+
+<div id="link">
+    <a href="https://www.go.com/">Apasa aici pentru a cunoaste lumea durerii.</a><br/>
+    <a href="https://www.facebook.com">Apasa aici pentru a cunoaste lumea placerii.</a>
+</div>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+    in culpa qui officia deserunt mollit anim id est laborum.
+
+</p> <br/>
+
+<div style="color: aqua; font-size: 30px">
+    Introduceti un User in db:
+</div>
+
+<form action="controllers/IndexController.php" method="post" class="form">
+    Numele: <br/> <input type="text" name="fName"><br/>
+    Prenumele:<br/> <input type="text" name="lName"><br/>
+    Varsta:<br/> <input type="number" name="age"><br/>
+    <input title="asdf" type="submit">
+</form>
+
+<table>
+    <th colspan="4">Users</th>
     <tr>
         <td>Id</td>
         <td>Numele</td>
@@ -26,9 +57,20 @@
         <td><?= $user['fName'] ?></td>
         <td><?= $user['lName'] ?></td>
         <td><?= $user['age'] ?></td>
+        <td>
+            <form action="controllers/IndexController.php" method="get">
+                <button name="id" value="<?= $id ?>">Delete</button>
+            </form>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>
+<p>Lorem ipsum</p>
 
 </body>
+
+<footer>
+    <br/><br/><br/>
+</footer>
+
 </html>
