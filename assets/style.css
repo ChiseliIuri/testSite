@@ -231,9 +231,7 @@ div.boxForm:hover form{
 /*    padding-top: 20px;*/
 /*}*/
 
-/*.center{*/
-/*    margin: auto;*/
-/*}*/
+
 
 ul {
     list-style-type: none;
@@ -255,7 +253,9 @@ li:last-child a{
     border-bottom: none;
 }
 
-
+.center{
+    margin: auto;
+}
 
 
 
