@@ -18,7 +18,7 @@ class DataBase
     {
         $link = @mysqli_connect(self::$host, self::$user, self::$pass, self::$name);
         if (!$link) {
-            echo 'Eroare de conctare la BD';
+            echo 'Eroare de conectare la BD';
             die();
         } else return $link;
 
@@ -69,10 +69,10 @@ class DataBase
             $usersAr = array();
             while ($row = $qObj->fetch_assoc()) {
 //                echo 'id= ' . $row['id'] . '__First Name = ' . $row['fName'] . '__Last Name = ' . $row['lName'] . '__Age = ' . $row['age'] . '<br/>';
-                $usersAr[$row['id']] = array('fName'=>$row['fName'],
-                    'lName'=>$row['lName'],
-                    'age'=>$row['age'],
-                    );
+                $usersAr[$row['id']] = array('fName' => $row['fName'],
+                    'lName' => $row['lName'],
+                    'age' => $row['age'],
+                );
             }
         } else {
             echo 'some error occur';
@@ -80,13 +80,17 @@ class DataBase
         return $usersAr;
     }
 
-    public function deleteUserByID($id){
+    public function deleteUserByID($id)
+    {
         $link = $this->connectDb();
-        $sql = $link->prepare("DELETE from users where id = '$id'");
-        if ($sql ->execute()){
+        $cleanId = intval($id);
+        $sql = $link->prepare("DELETE from users where id = '$cleanId'");
+        if ($sql->execute()) {
             return true;
         } else {
             return false;
         }
     }
+
+
 }

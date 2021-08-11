@@ -1,18 +1,22 @@
-#forH1 {
+#container2{
+    width: 100%;
+    position: relative;
+}
+
+h1 {
     background: burlywood;
-    background-position: right;
     padding: 5px;
     text-align: center;
     text-shadow: red 2px 2px 5px;
     color: cornflowerblue;
-    width: 300px;
     height: 80px;
+    max-width: 500px;
     vertical-align: middle;
     border: 2px solid silver;
     border-radius: 20px;
     font-weight: bold;
-    font-family: Impact;
-    font-size: 60px;
+    font-family: Arial, serif;
+    font-size: 300%;
 }
 
 p {
@@ -21,7 +25,7 @@ p {
     border-left: solid red;
     padding: 10px;
     text-indent: 30px;
-    max-width: 1300px;
+    /*max-width: 1300px;
     /*width: 600px;*/
     /*height: 18%;*/
     color: black;
@@ -30,60 +34,59 @@ p {
     font-family: Calibri;
     line-height: 1.5;
     box-sizing: content-box;
+    font-size: 2em;
+
 }
 
 div p {
-    color: aqua;
-    font-size: 30px;
+    color: black;
     font-style: normal;
 }
 
-div h1 {
-    text-align: center;
-    color: darkgreen;
-    width: 600px;
-    height: 100px;
-    border: 2px inset silver;
-    font-weight: bold;
-    font-family: Impact;
-    font-size: 60px;
-}
-
-#test p, h2{
-    font-family: "Bookman Old Style";
-    color: darkorange;
-}
-
-.bbb #test p{
-    text-align: center;
-    color: crimson;
-    border: blue 2px dotted;
-}
-
 table {
-    margin: 5px;
+    border-collapse: collapse;
+    margin: auto;
     background: rgba(255,255,255,0.6);
+    table-layout: auto;
+    font-size: 1.3em;
+    width: 100%;
     max-width: 700px;
     max-height: 500px;
-    border: white solid;
     border-radius: 20px;
 }
 
+th {
+    background-color: #1b6d85;
+    border-radius: 20px 20px 0 0;
+}
+
+/*tr:hover {*/
+
+/*    background-color: #f5f5f5;}*/
+
+tr:nth-child(even){
+    background-color: rgba(255,255,255,0.6);
+}
+
 td {
-    text
     text-align: center;
     vertical-align: middle;
     border: none ;
 }
 
 th {
+    text-align: center;
     border: none ;
 }
 
-li {
-    font-style: italic;
-    color: darkblue;
+#tableResp {
+    overflow-x: auto;
 }
+
+/*li {*/
+/*    font-style: italic;*/
+/*    color: darkblue;*/
+/*}*/
 
 #link a{
     font-weight: bold;
@@ -112,20 +115,30 @@ body {
     color: black;
 }
 
+
+
 .fon {
     /*float: right;*/
-    background-image: url('img/hi-tech-corsair-technology-black.jpg');
-    max-width: 1440px;
-    max-height: 810px;
-    background-repeat: no-repeat;
-    margin: 20px 50px;
-    /*background-position: center;*/
+    /*position: relative;*/
+    /*background-image: url('img/hi-tech-corsair-technology-black.jpg');*/
+    background-color: 	#E3E4D0;
+    background-position: center;
+    background-repeat: repeat-y;
     background-attachment: scroll;
+}
 
+
+
+#contentPos {
+    position: relative;
+    margin: auto;
 }
 
 .form {
-    color: white;
+    display: none;
+    position: relative;
+    float: left;
+    color: black;
     margin: 1.5%;
 }
 
@@ -134,19 +147,96 @@ button{
     border: cornflowerblue;
     border-radius: 50px;
     box-shadow: gray 1px 3px;
+    font-size: 15px;
 }
 
 button:hover{
     color: red;
+    cursor: pointer;
 }
 
 button:active{
     box-shadow: none;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    text-align: center;
+    border: solid 2px rgba(1,1,1,0.2);
+    background-color: rgba(102, 153, 255, 0.6);
+    float: left;
+    width: 33.3%;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.responsive{
+    text-align: left;
+    float: right;
+    width: 50%;
+}
+
+div.boxForm:hover form{
+    background-color: white;
+    box-shadow: gray 0px 5px 15px;
+    padding: 20px;
+    border-left: 3px solid red;
+    border-radius: 10px;
+    display: block;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 1.2em;
+    }
+}
 
 
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
 
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: darkolivegreen;
+}
+
+.nav {
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+li a{
+    /*text-underline-style: none;*/
+    background-color: silver;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav li{
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.center{
+    margin: auto;
+}
 
 
 
