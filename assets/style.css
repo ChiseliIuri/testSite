@@ -83,10 +83,7 @@ th {
     overflow-x: auto;
 }
 
-/*li {*/
-/*    font-style: italic;*/
-/*    color: darkblue;*/
-/*}*/
+
 
 #link a{
     font-weight: bold;
@@ -115,8 +112,6 @@ body {
     color: black;
 }
 
-
-
 .fon {
     /*float: right;*/
     /*position: relative;*/
@@ -126,8 +121,6 @@ body {
     background-repeat: repeat-y;
     background-attachment: scroll;
 }
-
-
 
 #contentPos {
     position: relative;
@@ -206,37 +199,62 @@ div.boxForm:hover form{
 
 }
 
-div.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    background-color: darkolivegreen;
-}
+/*div.sticky {*/
+/*    position: -webkit-sticky;*/
+/*    position: sticky;*/
+/*    z-index: 1000;*/
+/*    top: 0;*/
+/*    background-color: darkolivegreen;*/
+/*}*/
 
-.nav {
+/*.nav {*/
+/*    list-style-type: none;*/
+/*    text-align: center;*/
+/*    margin-bottom: 30px;*/
+/*    padding: 0;*/
+/*}*/
+
+/*li {*/
+/*    margin: 0;*/
+/*}*/
+
+/*li a{*/
+/*    background-color: silver;*/
+/*    padding: 10px;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.nav li{*/
+/*    display: inline-block;*/
+/*    font-size: 20px;*/
+/*    padding-bottom: 20px;*/
+/*    padding-top: 20px;*/
+/*}*/
+
+/*.center{*/
+/*    margin: auto;*/
+/*}*/
+
+ul {
     list-style-type: none;
-    text-align: center;
-    margin-bottom: 30px;
+    margin: 0;
     padding: 0;
 }
 
 li a{
-    /*text-underline-style: none;*/
-    background-color: silver;
+    text-align: center;
     padding: 10px;
-    text-decoration: none;
+    display: block;
+    /*margin: 5px;*/
+    width: 100%;
+    background-color: #3c3c3c;
+    border-bottom: 2px solid black;
 }
 
-.nav li{
-    display: inline-block;
-    font-size: 20px;
-    padding: 20px;
+li:last-child a{
+    border-bottom: none;
 }
 
-.center{
-    margin: auto;
-}
 
 
 
