@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tables</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css?a=1">
     <!--    <link href="assets/css/a" rel="stylesheet">-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $('#put').on('click',function (){
+                var data = $('#form').serializeArray();
+                var send = {};
+                for(obj of data) {
+                    send[obj.name] = obj.value;
+                }
+                $.ajax({
+                    url: 'controllers/IndexController.php',
+                    type: 'POST',
+                    data: send,
+                    success: function(result) {
+                        result = JSON.parse(result);
+                        console.error(result);
+                        $('table>tbody').append(`<tr>
+                            <td>${result.id}</td>
+                            <td>${result.fName}</td>
+                            <td>${result.lName}</td>
+                            <td>${result.age}</td>
+                            <td>
+                                <form action="controllers/IndexController.php" method="get">
+                                    <button name="id" value="${result.id}">Delete</button>
+                                </form>
+                            </td>
+                        </tr>`);
+                    }
+                });
+                console.log(send);
+            });
+        });
+    </script>
 </head>
 
 <body class="fon">
@@ -39,14 +72,14 @@
         <div class="boxForm">
             <span style="background-color: #3c763d; padding: 6px; font-size: 20px; margin-bottom: 20px; border-radius: 5px; cursor: pointer"> Hover here for visualize \/ </span><br/>
 
-            <form action="controllers/IndexController.php" method="post" class="form">
+            <form class="form" id="form">
                 <div style="color: black; font-size: 2em">
                     Introduceti un User in db:
                 </div>
                 Numele: <br/> <input type="text" name="fName"><br/>
                 Prenumele:<br/> <input type="text" name="lName"><br/>
                 Varsta:<br/> <input type="number" name="age"><br/>
-                <input title="asdf" type="submit">
+                <button title="asdf" type="button" id="put"> SEND </button>
             </form>
         </div>
 

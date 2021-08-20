@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once '../models/DataBase.php';
 
 class IndexController
@@ -19,17 +22,20 @@ class IndexController
     public static function addUser(){
         if (isset($_POST['fName'])||isset($_POST['lName'])||isset($_POST['age'])){
             $db = new DataBase();
-            if($db->insertUserInDb($_POST['fName'], $_POST['lName'], $_POST['age'])){
-                header("Location: http://localhost/testSite/inddex.html");
-            } else {
-                echo 'Some error occur at execution of a query';
-                echo 'Press here <a href="http://localhost/testSite/inddex.html"> to go at mainpage';
-            }
+            $data = $db->insertUserInDb($_POST['fName'], $_POST['lName'], $_POST['age']);
+            die(json_encode($data));
         }
     }
-
     //new comment
 }
 
-IndexController::deleteUser();
-IndexController::addUser();
+switch ($_SERVER['REQUEST_METHOD']) {
+	case 'GET': IndexController::deleteUser(); break;
+	case 'POST':
+		IndexController::addUser();
+		break;
+//	case 'PUT': break;
+}
+//
+//IndexController::deleteUser();
+//IndexController::addUser();

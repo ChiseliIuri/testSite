@@ -10,8 +10,42 @@ class DataBase
     private static $pass = '';
 
     /**
+     * @return string
+     */
+    public static function getHost()
+    {
+        return self::$host;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getName()
+    {
+        return self::$name;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getUser()
+    {
+        return self::$user;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getPass()
+    {
+        return self::$pass;
+    }
+
+    /**
      * @return mysqli
      */
+
+
 
     public function connectDb(): mysqli
     {
@@ -38,12 +72,24 @@ class DataBase
         $prepare = $link->prepare("INSERT INTO users (fName, lName, age) values(?,?,?)");
         if ($prepare->bind_param("ssi", $fName, $lName, $age)) {
             if ($prepare->execute()) {
-                return true;
+                return $this->getUserByID($link->insert_id);
             } else {
                 return false;
             }
         }
     }
+
+	public function getUserByID($id = null)
+	{
+		$link = $this->connectDb();
+		$sql = "SELECT * FROM users WHERE id = '$id' LIMIT 1";
+		$qObj = $link->query($sql);
+		if (!empty($qObj)) {
+			return $qObj->fetch_assoc();
+		} else {
+			echo 'some error occur';
+		}
+	}
 
     public function getSpecUserFromDb($fName = null, $lName = null)
     {

@@ -128,7 +128,7 @@ body {
 }
 
 .form {
-    display: none;
+    /*display: none;*/
     position: relative;
     float: left;
     color: black;
@@ -172,7 +172,7 @@ button:active{
     width: 50%;
 }
 
-div.boxForm:hover form{
+div.boxForm form{
     background-color: white;
     box-shadow: gray 0px 5px 15px;
     padding: 20px;
@@ -230,8 +230,6 @@ div.boxForm:hover form{
 /*    padding-bottom: 20px;*/
 /*    padding-top: 20px;*/
 /*}*/
-
-
 
 ul {
     list-style-type: none;
