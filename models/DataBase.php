@@ -9,52 +9,13 @@ class DataBase
     private static $user = 'root';
     private static $pass = '';
 
-    /**
-     * @return string
-     */
-    public static function getHost()
-    {
-        return self::$host;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getName()
-    {
-        return self::$name;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getUser()
-    {
-        return self::$user;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getPass()
-    {
-        return self::$pass;
-    }
-
-    /**
-     * @return mysqli
-     */
-
-
-
-    public function connectDb(): mysqli
+    private function connectDb(): mysqli
     {
         $link = @mysqli_connect(self::$host, self::$user, self::$pass, self::$name);
         if (!$link) {
             echo 'Eroare de conectare la BD';
             die();
         } else return $link;
-
 //        try {
 //            $conn = new PDO(self::$host, self::$user, self::pass, self::$name);
 //            // set the PDO error mode to exception
@@ -63,12 +24,22 @@ class DataBase
 //        } catch(PDOException $e) {
 //            echo "Connection failed: " . $e->getMessage();
 //        }
+    }
 
+    private function connectDbPDO(){
+        try {
+            $conn = new PDO(self::$host, self::$user, self::pass, self::$name);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connected successfully";
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
     }
 
     public function insertUserInDb($fName, $lName, $age = null)
     {
-        $link = $this->connectDb();
+    	$link = self::connectDb();
         $prepare = $link->prepare("INSERT INTO users (fName, lName, age) values(?,?,?)");
         if ($prepare->bind_param("ssi", $fName, $lName, $age)) {
             if ($prepare->execute()) {
@@ -94,15 +65,25 @@ class DataBase
     public function getSpecUserFromDb($fName = null, $lName = null)
     {
         $link = $this->connectDb();
-        $sql = "SELECT * FROM users WHERE fName = '$fName' and lName = '$lName'";
+        $sql = $link->prepare( "SELECT * FROM users WHERE fName = ? and lName = ?");
+        $sql->bind_param("ss", $fName, $lName);
         $qObj = $link->query($sql);
+
+        $user  = array();
         if (!empty($qObj)) {
             while ($row = $qObj->fetch_assoc()) {
                 echo 'id= ' . $row['id'] . '__First Name = ' . $row['fName'] . '__Last Name = ' . $row['lName'] . '__Age = ' . $row['age'] . '<br/>';
-            }
-        } else {
-            echo 'some error occur';
-        }
+				$user[] = array(
+					'id'=>$row['id'],
+					'fName' => $row['fName'],
+					'lName' => $row['lName'],
+					'age' => $row['age'],
+				);
+			}
+		} else {
+			echo 'some error occur';
+		}
+        return $user;
     }
 
     public function getAllUser()

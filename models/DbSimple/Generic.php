@@ -83,7 +83,7 @@ class DbSimple_Generic
      * Choose database driver according to DSN. Return new instance
      * of this driver.
      */
-    function& connect($dsn)
+    static function&  connect($dsn)
     {
         // Load database driver and create its instance.
         $parsed = DbSimple_Generic::parseDSN($dsn);
@@ -110,7 +110,7 @@ class DbSimple_Generic
                 }
             }
         }
-        $object =& new $class($parsed);
+        $object = new $class($parsed);
         if (isset($parsed['ident_prefix'])) {
             $object->setIdentPrefix($parsed['ident_prefix']);
         }
@@ -130,7 +130,7 @@ class DbSimple_Generic
                     fclose($fp);
                     unlink($testFile);                
                     require_once 'Cache' . '/Lite.php'; // "." -> no phpEclipse notice
-                    $t =& new Cache_Lite(array('cacheDir' => $dir.'/', 'lifeTime' => null, 'automaticSerialization' => true));
+                    $t = new Cache_Lite(array('cacheDir' => $dir.'/', 'lifeTime' => null, 'automaticSerialization' => true));
                     $object->_cacher =& $t;
                     break;
                 }
@@ -146,7 +146,7 @@ class DbSimple_Generic
      * Parse a data source name.
      * See parse_url() for details. 
      */
-    function parseDSN($dsn)
+    static function parseDSN($dsn)
     {
         if (is_array($dsn)) return $dsn;
         $parsed = @parse_url($dsn);

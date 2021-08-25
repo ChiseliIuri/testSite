@@ -1,4 +1,10 @@
 <?php
+require_once "../models/DataBase.php";
+
+$db = new DataBase();
+print_r($db->getSpecUserFromDb("Isaac", "Newton ' and age = '"));
+
+//' and age = '200
 //$_GET["type"] = "5";
 //$_GET["prv_id"] = "544355";
 //$_GET["agent_id"]="345678";
@@ -7,14 +13,48 @@
 //$_GET["date_from"] = '2018-04-09';
 //$_GET["date_to"] = '1998.04.01';
 //$_GET["pay_type"] = '1234214';
+//require_once "../models/DbSimple/Generic.php";
+//$DB = DbSimple_Generic::connect('mysql://root:@localhost/test');
+//$dsn = "mysql://127.0.0.1:3306/test";
 //
+//if ($DB) {
+//	echo "success" . "<br/>";
+//} else {
+//	echo "fail" . "<br/>";
+//}
+//
+//$array["test"] = "yep";
+//$sql_insert = array(1 => "one", 2 => "two", 3 => "three");
+//
+//$exp = $DB->query("INSERT INTO payments_request" . ($array["test"] ? "_test" : "") . " (?#)
+//VALUES (?a)", array_keys($sql_insert), array_values($sql_insert));
+//
+//
+//$array["txn_id"] = 123456;
+//$sql_update = array(1 => "one", 2 => "two", 3 => "three");
+//
+//$exp2 = $DB->query("UPDATE payments".($array["test"]?"_test":"")." SET {?a}
+//WHERE txn_id='".$array["txn_id"]."'",$sql_update);
+//
+//$exp3 = $DB->selectRow("SELECT * FROM users
+//WHERE id = ? LIMIT 1;", 63);
+//print_r($exp3);
+//
+//
+////$DB->query("UPDATE ?# SET {?a} WHERE txn_id= ? "(TBL_PAYMENTS.($array["test"]?"_test":"")), $sql_update, $array["txn_id"]);
+//
+//define("TBL_PAYMENTS_EXTRA", "user");
+//
+//echo "<br/>" . TBL_PAYMENTS_EXTRA."".($array["test"]?"_test":"");
+//echo "<br/>" . TBL_PAYMENTS_EXTRA.($array["test"]?"_test":"");
+//echo "<br/>" . sprintf("vars = %s", (TBL_PAYMENTS_EXTRA.($array["test"]?"_test":"")));
+//echo "<br/>" . sprintf("vars = %s", ("payments".($array["test"]?"_test":"")));
 //$report = array();
 //$report["type"] 		= $_GET["report_type"];
 //$report["prv_id"] 		= intval($_GET["prv_id"]);
 //$report["agent_id"] 	= intval($_GET["agent_id"]);
 //$report["date_from"] 	= formatDate($_GET["date_from"]);
 //$report["date_to"] 		= formatDate($_GET["date_to"]);
-//
 //function formatDate($dirtyDate){
 //    if (checkdate(substr($dirtyDate,5,2),substr($dirtyDate,8,2),substr($dirtyDate,0,4))) {
 //        $date = date_create(substr($dirtyDate,0,10));
@@ -101,30 +141,28 @@
 //} else {
 //    echo '<br/>' . "some vare is empty";
 //}
-
-$path = "/tmp/some/of/the/real/path/naket_lili.jpg";
-$ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
-$ext2 = strrchr($path, '.');
-print_r(array(
-    $path,
-    $ext,
-    $ext2
-));
-
-$fileName = "file:///C:/Users/i.chiseli/Desktop/qiwi.md_admin.pdf";
-echo '<br/>'. strrchr($fileName,'.');
-
-$path = "/tmp/some/of/the/real/path/naket_lili.jpg";
-echo '<br/>'. strrchr($path,'.');
-
-$ext = "";
-echo '<br/>' , preg_match("((^jpeg$)|(^jpg$)|(^png$))",$ext);
-
-$search["prv_txn"] = "123' 456 '890";
-$query = explode(" ", addslashes($search["prv_txn"]));
-print_r($query);
+//$path = "/tmp/some/of/the/real/path/naket_lili.jpg";
+//$ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+//$ext2 = strrchr($path, '.');
+//print_r(array(
+//    $path,
+//    $ext,
+//    $ext2
+//));
+//
+//$fileName = "file:///C:/Users/i.chiseli/Desktop/qiwi.md_admin.pdf";
+//echo '<br/>'. strrchr($fileName,'.');
+//
+//$path = "/tmp/some/of/the/real/path/naket_lili.jpg";
+//echo '<br/>'. strrchr($path,'.');
+//
+//$ext = "";
+//echo '<br/>' , preg_match("((^jpeg$)|(^jpg$)|(^png$))",$ext);
+//
+//$search["prv_txn"] = "123' 456 '890";
+//$query = explode(" ", addslashes($search["prv_txn"]));
+//print_r($query);
 //echo '<br/>' . strstr($fileName, '.');
-
 //include_once '../models/DataBase.php';
 //$db = new DataBase();
 //$link = $db->connectDb();
@@ -151,4 +189,3 @@ print_r($query);
 //    $payments_stat[$item["day"]][$item["prv_id"]]["datetime"] = $item["osmp_datetime"];
 //}
 //print_r($payments_stat);
-
