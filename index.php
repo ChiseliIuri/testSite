@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<?php
+
+spl_autoload_register(function ($class) {
+    $b = '.' . DIRECTORY_SEPARATOR;
+    $classes_dir = [$b . 'models', $b . 'controllers'];
+    foreach($classes_dir as $dir) {
+        $path = $dir . DIRECTORY_SEPARATOR . $class . '.php';
+        if(is_file($path)) {
+            require_once($path);
+            break;
+        }
+    }
+});
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
