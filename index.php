@@ -11,12 +11,14 @@ spl_autoload_register(function ($class) {
         }
     }
 });
+
 function view($view, $ar){
     ob_start();
     extract($ar);
     require_once $view;
     return ob_get_clean();
 }
+
 DB::connect("127.0.0.1", "root", "", "test");
 
 switch ($_SERVER['REQUEST_METHOD']) {
