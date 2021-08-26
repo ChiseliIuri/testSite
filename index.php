@@ -30,6 +30,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         ]);
         break;
     case 'POST':
+        header('Content-Type: application/json');
         switch ($_POST['action']){
             case 'new_user':
                 $user = new UserModel([

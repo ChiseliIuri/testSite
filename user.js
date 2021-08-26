@@ -5,8 +5,6 @@ function save_User() {
     });
 
     $.post('/testSite/',finalObj).done(function(result){
-        console.log('>>>',result);
-        result= JSON.parse(result);
         if (result.done){
             $("#user_form").get(0).reset();
             var user = result.data;
@@ -16,31 +14,29 @@ function save_User() {
                         <td>${user.lName}</td>
                         <td>${user.age}</td>
                         <td>
-                            <form action="controllers/IndexController.php" method="get">
-                                <button name="id" value="${user.id}">Delete</button>
-                            </form>
+                             <button type="button" class="delete_user" data-id="${user.id}">Delete</button>
                         </td>
                     </tr>`)
         } else {
             console.error("ceva ne to");
         }
     });
-
-    console.log(finalObj);
 }
 
-$("#user_table").on("click", ".delete_user", function(){
-    var user_id = $(this).data("id");
-    var finalObj = {
-
-    }
-    $.post('/testSite/',finalObj).done(function(result){
-        console.log('>>>',result);
-        result= JSON.parse(result);
-        if (result.done){
-
-        } else {
-            console.error("ceva ne to");
+$(document).ready(function(){
+    $("#user_table").on("click", ".delete_user", function(){
+        var user_id = $(this).data("id");
+        var button_obj = $(this);
+        var finalObj = {
+            "action":"delete_user",
+            "user_id":user_id
         }
-    });
+        $.post('/testSite/',finalObj).done(function(result){
+            if (result.done){
+                button_obj.closest("tr").remove();
+            } else {
+                console.error("ceva ne to");
+            }
+        });
+    })
 })
