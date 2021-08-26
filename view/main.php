@@ -27,7 +27,6 @@
     <div class="responsive">
         <div class="boxForm">
             <span style="background-color: #3c763d; padding: 6px; font-size: 20px; margin-bottom: 20px; border-radius: 5px; cursor: pointer"> Hover here for visualize \/ </span><br/>
-
             <form action="/testSite/" method="post" class="form" id="user_form" >
                 <div style="color: black; font-size: 2em">
                     Introduceti un User in db:
@@ -39,7 +38,6 @@
                 <input type="hidden" name="action" value="new_user">
             </form>
         </div>
-
     </div>
     <?=$body?>
     <div class="clearfix"></div>

@@ -27,7 +27,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $view_users = view("view/users.php", ["users"=>$users]);
         $view_body = view("view/main.php", ["body"=>$view_users]);
         echo view("view/layout.php", [
-            "title"=>"users_page",
+            "title"=>"TEST_SITE",
             "body"=>$view_body
         ]);
         break;
