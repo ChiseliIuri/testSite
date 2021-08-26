@@ -17,8 +17,10 @@ function save_User() {
                              <button type="button" class="delete_user" data-id="${user.id}">Delete</button>
                         </td>
                     </tr>`)
+            toastr.success("Added with success");
         } else {
             console.error("ceva ne to");
+            toastr.error(result.error);
         }
     });
 }
@@ -34,7 +36,9 @@ $(document).ready(function(){
         $.post('/testSite/',finalObj).done(function(result){
             if (result.done){
                 button_obj.closest("tr").remove();
+                toastr.success("Removed with success");
             } else {
+                toastr.error("ceva ne to")
                 console.error("ceva ne to");
             }
         });
