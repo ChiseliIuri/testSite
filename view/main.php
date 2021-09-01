@@ -1,11 +1,6 @@
 
 <div class="sticky">
-    <ul class="nav">
-        <li><a href="inddex.html">Home</a></li>
-        <li><a href="#">Setings</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">New</a></li>
-    </ul>
+    <?=$menu?>
 </div>
 
 <div id="contentPos">
@@ -26,8 +21,8 @@
 
     <div class="responsive">
         <div class="boxForm">
-            <span style="background-color: #3c763d; padding: 6px; font-size: 20px; margin-bottom: 20px; border-radius: 5px; cursor: pointer"> Hover here for visualize \/ </span><br/>
-            <form action="/testSite/" method="post" class="form" id="user_form" >
+            <span style="background-color: #3c763d; padding: 6px; font-size: 20px; margin-bottom: 20px; border-radius: 5px; cursor: pointer" onclick="toggle_form()"> Hover here for visualize \/ </span><br/>
+            <form action="/testSite/" method="post" class="form" id="user_form" style="display: none;" >
                 <div style="color: black; font-size: 2em">
                     Introduceti un User in db:
                 </div>

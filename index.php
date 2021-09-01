@@ -21,11 +21,19 @@ function view($view, $ar){
 
 DB::connect("127.0.0.1", "root", "", "test");
 
+$menu = [
+    "Home" =>"index.php",
+    "Setings" =>"#",
+    "About" =>"#",
+    "New" =>"#"
+];
+
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         $users = UserModel::findAll();
+        $view_menu = view("view/head.php", ["menu"=>$menu]);
         $view_users = view("view/users.php", ["users"=>$users]);
-        $view_body = view("view/main.php", ["body"=>$view_users]);
+        $view_body = view("view/main.php", ["body"=>$view_users, "menu"=>$view_menu]);
         echo view("view/layout.php", [
             "title"=>"TEST_SITE",
             "body"=>$view_body

@@ -165,13 +165,10 @@ button:active{
 }
 
 .form {
-    display: none;
     position: relative;
     float: left;
     color: black;
-}
-
-div.boxForm:hover form{
+    
     background-color: white;
     box-shadow: gray 0px 5px 15px;
     padding: 20px;
