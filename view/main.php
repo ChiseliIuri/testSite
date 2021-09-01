@@ -1,11 +1,6 @@
 
 <div class="sticky">
-    <ul class="nav">
-        <li><a href="inddex.html">Home</a></li>
-        <li><a href="#">Setings</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">New</a></li>
-    </ul>
+    <?=$menu?>
 </div>
 
 <div id="contentPos">
