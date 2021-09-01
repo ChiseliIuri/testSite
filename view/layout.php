@@ -9,7 +9,7 @@
     <!--    <link href="assets/css/a" rel="stylesheet">-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="user.js?a=1"></script>
+    <script src="assets/js/user.js?a=1"></script>
 </head>
 
 <body class="fon">
