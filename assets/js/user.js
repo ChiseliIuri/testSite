@@ -25,6 +25,10 @@ function save_User() {
     });
 }
 
+function toggle_form() {
+    $('#user_form').toggle();
+}
+
 $(document).ready(function(){
     $("#user_table").on("click", ".delete_user", function(){
         var user_id = $(this).data("id");
